@@ -1,0 +1,15 @@
+b = [1,4,6,3,1,2,3]
+minnum = False
+i = 0
+j = -1
+for d in b:
+  j+=1
+  for a in range(len(b)-1-j):
+    if minnum == False or b[j+i]<=minnum:
+      minnum = j+i
+      i+=1
+  temp = minnum
+  b[i+j] = b[j]
+  b[j] = minnum
+  i=0
+  print(b)
