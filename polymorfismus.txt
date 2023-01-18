@@ -1,0 +1,42 @@
+<?php
+class Auto{
+  protected $typ;
+  protected $znacka;
+  public function __construct($typ, $znacka){
+    $this->typ = $typ;
+    $this->znacka = $znacka;
+  }
+  public function vratInfo(){
+    return "typ:".$this->typ."\nznacka:".$this->znacka."\n";
+  }
+}
+class Nakladak extends Auto{
+  private $nosnost;
+  public function __construct($typ, $znacka, $nosnost){
+    $this->nosnost = $nosnost;
+    parent::__construct($typ, $znacka);
+  }
+  public function vratInfo(){
+    return "\nnosnost:".$this->nosnost."\n".parent::vratInfo();
+  }
+}
+class ElektrickeAuto extends Auto{
+  private $vydrz;
+  public function __construct($typ, $znacka, $vydrz){
+    $this->vydrz = $vydrz;
+    parent::__construct($typ, $znacka);
+  }
+  public function vratInfo(){
+    return "\nvydrz baterie:".$this->vydrz."\n".parent::vratInfo();
+  }
+}
+$arr = [];
+for($i=0;$i<25;$i++){
+  array_push($arr,new Auto(rand(1, 100),rand(1, 100)));
+  array_push($arr,new Nakladak(rand(1, 100),rand(1, 100),rand(1, 100)));
+  array_push($arr,new ElektrickeAuto(rand(1, 100),rand(1, 100),rand(1, 100)));
+}
+#hodnoty atributu nesouvisi, byl jsem liny abych vytvoril seznam znacek, typu a ostatnich
+foreach($arr as $autos){
+  echo $autos->vratInfo();
+}
