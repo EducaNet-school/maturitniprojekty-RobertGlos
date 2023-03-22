@@ -23,7 +23,6 @@
         document.getElementById(a+3).style.visibility = 'visible';
       }
     </script>
-    <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script> 
   </body>
 </html>
 <?php
