@@ -2,7 +2,7 @@
 	class Kino{
 		public function ProdejListku($divak, $film){
 			try{
-				if($divak->returnVek() < $film->returnVek()){
+				if($divak->returnVek() <= $film->returnVek()){
 					throw new MissingMoneyException();
 				}
 				if($divak->returnCash() < $film->returnCash()){
